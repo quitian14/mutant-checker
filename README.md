@@ -29,6 +29,9 @@ RabbitMQ was deployed in https://api.cloudamqp.com/
 
 ![Drag Racing](architecture.png)
 
+## Unit test
+See the results on https://github.com/quitian14/mutant-checker/runs/6644655653?check_suite_focus=true
+
 ## Examen Mercadolibre
 Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar
 contra los X-Men.

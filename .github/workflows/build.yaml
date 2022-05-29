@@ -23,18 +23,15 @@ jobs:
         ports:
           - 54330:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
       redis:
-        # Docker Hub image
         image: redis
-        ports:
-          - 6379:6379
-        # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          - 6379:6379
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -47,6 +44,6 @@ jobs:
       - name: tests
         run: mvn test
         env:
-          REDIS_HOST: redis
+          REDIS_HOST: localhost
           REDIS_PORT: 6379
-          MQ_HOST: rabbitmq
+          MQ_HOST: localhost

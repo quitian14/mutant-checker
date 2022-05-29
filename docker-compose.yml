@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  mutant-checker:
+    image: qutiian14/mutant-checker:1.0.4
+    ports:
+      - 8080:8081
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+      DB_HOST: postgres
+      DB_PORT: '5432'
+      DB_NAME: 'test'
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'postgres'
+      DB_MAX_POOL_SIZE: 10
+      MQ_HOST: rabbitmq
+  postgres:
+    image: postgres:11.6-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: test
+      POSTGRES_USER: postgres
+    ports:
+      - 54330:5432
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"

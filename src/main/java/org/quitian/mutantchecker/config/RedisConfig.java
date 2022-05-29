@@ -26,7 +26,7 @@ import java.time.Duration;
 public class RedisConfig {
 
     @Value("${spring.redis.host}")
-    private String redisHost = "";
+    private String redisHost;
 
     @Value("${spring.redis.port}")
     private int redisPort;
@@ -39,6 +39,12 @@ public class RedisConfig {
 
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
+        System.out.println("---------------------------------------");
+        System.out.println("-------------REDIS----------------------");
+        System.out.println(redisPort+"-"+redisHost);
+        System.out.println("---------------------------------------");
+        System.out.println("---------------------------------------");
+
         JedisClientConfiguration jedisClientConfiguration = JedisClientConfiguration.builder()
                 .connectTimeout(Duration.ofSeconds(10))
                 .usePooling()

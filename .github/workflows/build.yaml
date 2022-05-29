@@ -45,5 +45,5 @@ jobs:
       - name: tests
         run: mvn test
       - name: Publish Test Report
-          if: ${{ always() }}
-          uses: scacap/action-surefire-report@v1
+        if: ${{ always() }}
+        uses: scacap/action-surefire-report@v1

@@ -27,6 +27,7 @@ RabbitMQ was deployed in https://api.cloudamqp.com/
 * RabitMQ to save asynchronously the outcome of DNA validation and support huge loads.
 * Postgres database to save the mutant validations result and statistics.
 
+![Drag Racing](architecture.png)
 
 ## Examen Mercadolibre
 Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar

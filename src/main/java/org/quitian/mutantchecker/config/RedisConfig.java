@@ -39,12 +39,6 @@ public class RedisConfig {
 
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
-        System.out.println("---------------------------------------");
-        System.out.println("-------------REDIS----------------------");
-        System.out.println(redisPort+"-"+redisHost);
-        System.out.println("---------------------------------------");
-        System.out.println("---------------------------------------");
-
         JedisClientConfiguration jedisClientConfiguration = JedisClientConfiguration.builder()
                 .connectTimeout(Duration.ofSeconds(10))
                 .usePooling()

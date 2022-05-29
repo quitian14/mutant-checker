@@ -9,6 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     services:
+      rabbitmq:
+        image: rabbitmq:management
+        ports:
+          - 5672:5672
+          - 15672:15672
       postgres:
         image: postgres:11.6-alpine
         env:

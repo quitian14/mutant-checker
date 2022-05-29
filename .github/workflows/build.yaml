@@ -44,7 +44,3 @@ jobs:
         run: mvn install
       - name: tests
         run: mvn test
-        env:
-          REDIS_HOST: redis
-          REDIS_PORT: 6379
-          MQ_HOST: rabbitmq
